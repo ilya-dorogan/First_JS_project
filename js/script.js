@@ -10,12 +10,27 @@ const personalMovieDB = {
 	privat: false,
 };
 
-const a = prompt('Enter last watched movie?', ''),
-	b = prompt('Rate it', ''),
-	c = prompt('Enter last watched movie?', ''),
-	d = prompt('Enter last watched movie?', '');
+for (let i = 0; i < 2; i++) {
+	const a = prompt('Enter last watched movie?', ''),
+		b = prompt('Rate it', '');
 
-personalMovieDB.movies[a] = b;
-personalMovieDB.movies[c] = d;
+	if (a != null && b != null && a != '' && b != '' && a.length < 50) {
+		personalMovieDB.movies[a] = b;
+		alert('Done!');
+	} else {
+		alert('Error!');
+		i--;
+	}
+}
+
+if (personalMovieDB.count < 10) {
+	alert('You watched a few films!');
+} else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30) {
+	alert('You are a classic spectator!');
+} else if (personalMovieDB.count >= 30) {
+	alert('You are a movie buff!');
+} else {
+	alert('Error!');
+}
 
 console.log(personalMovieDB);
